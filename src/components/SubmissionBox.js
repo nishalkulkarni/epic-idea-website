@@ -109,20 +109,20 @@ export class SubmissionBox extends Component {
 
   render() {
     return (
-      <div style={container}>
-        <form onSubmit={this.handleSubmit} style={formContainer}>
-          <h2 style={h2}>Name:</h2>
+      <div className="container flex justify-center py-5 pb-10 rounded-md bg-gray-100">
+        <form className="w-3/5" onSubmit={this.handleSubmit}>
+          <h2 className="text-lg font-medium text-gray-600">Name:</h2>
           <input
-            style={inputBox}
+            className="input w-full md:w-56 h-8"
             type="text"
             name="name"
             value={this.state.name}
             onChange={this.handleChange}
           />
 
-          <h2 style={h2}>Your idea:</h2>
+          <h2 className="text-lg font-medium text-gray-600">Your idea:</h2>
           <textarea
-            style={inputBox}
+            className="input w-full py-2 "
             cols="30"
             name="description"
             rows="10"
@@ -130,77 +130,16 @@ export class SubmissionBox extends Component {
             onChange={this.handleChange}
           />
 
-          <div style={{ alignSelf: "flex-end" }}>
-            <input
-              style={resetButton}
-              type="button"
-              value="List All Ideas"
-              onClick={this.displayIdeas}
-            />
-
-            <input
-              style={resetButton}
-              type="reset"
-              value="Reset"
-              onClick={this.handleReset}
-            />
-            <input style={submitButton} type="submit" value="Submit" />
+          <div className="flex justify-end mt-5 gap-5">
+            {/* <input className="btn  text-gray-800 hover:bg-gray-800 hover:border-gray-800 hover:text-white" type="button" value="List All Ideas" onClick={this.displayIdeas} /> */}
+            <input className="btn text-gray-800 hover:bg-gray-800 hover:border-gray-800 hover:text-white" type="reset" value="Reset" onClick={this.handleReset} />
+            <input className="btn text-green-400 hover:bg-green-400 hover:border-green-400 hover:text-white" type="submit" value="Submit" />
           </div>
         </form>
-        <div id="ideaList">{this.state.currentIdeas}</div>
+        <div className="block flex-col gap-4 bg-gray-400" id="ideaList">{this.state.currentIdeas}</div>
       </div>
     );
   }
 }
-
-const container = {
-  background: "#F6F5F4",
-  padding: "20px 0 30px 0",
-  zIndex: "-1",
-  borderRadius: "0 0 10px 10px",
-};
-
-const formContainer = {
-  display: "flex",
-  flexDirection: "column",
-  width: "60%",
-  margin: "auto",
-};
-
-const inputBox = {
-  // fontFamily: 'sans-serif',
-  fontFamily: "sans-serif",
-  fontSize: "25px",
-  padding: "10px 10px",
-  marginBottom: "5px",
-  border: "2px solid #808080",
-  borderRadius: "5px",
-};
-
-const h2 = {
-  margin: "5px 0",
-};
-
-const button = {
-  padding: "15px 35px",
-  border: "none",
-  borderRadius: "5px",
-  fontSize: "16px",
-  fontWeight: "400",
-  cursor: "pointer",
-  marginLeft: "10px",
-};
-
-const submitButton = {
-  ...button,
-  color: "#fff",
-  background: "#68bc00",
-};
-
-const resetButton = {
-  ...button,
-  color: "#fff",
-  background: "#303030",
-};
 
 export default SubmissionBox;

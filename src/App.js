@@ -5,7 +5,7 @@ import SubmissionBox from './components/SubmissionBox'
 
 function App() {
   return (
-    <div>
+    <div className="container">
       <Header />
       <SubmissionBox />
     </div>
