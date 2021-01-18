@@ -90,14 +90,13 @@ export class SubmissionBox extends Component {
         displayList.push(
           "<div key=" +
             uid +
-            ' style="width: 70%, margin: 10px auto">\
+            ' class="bg-gray-300 m-4 p-4 rounded">\
             <strong>' +
             uname +
             "</strong>\
             <p>" +
             udsc +
             '</p>\
-            <hr style="margin: 10px auto" />\
           </div>'
         );
       });
@@ -109,8 +108,8 @@ export class SubmissionBox extends Component {
 
   render() {
     return (
-      <div className="container flex justify-center py-5 pb-10 rounded-md bg-gray-100">
-        <form className="w-3/5" onSubmit={this.handleSubmit}>
+      <div className="container flex flex-col justify-center py-5 pb-10 rounded-md bg-gray-100">
+        <form className="w-3/5 m-auto" onSubmit={this.handleSubmit}>
           <h2 className="text-lg font-medium text-gray-600">Name:</h2>
           <input
             className="input w-full md:w-56 h-8"
@@ -118,6 +117,7 @@ export class SubmissionBox extends Component {
             name="name"
             value={this.state.name}
             onChange={this.handleChange}
+            required
           />
 
           <h2 className="text-lg font-medium text-gray-600">Your idea:</h2>
@@ -128,15 +128,16 @@ export class SubmissionBox extends Component {
             rows="10"
             value={this.state.description}
             onChange={this.handleChange}
+            required
           />
 
           <div className="flex justify-end mt-5 gap-5">
-            {/* <input className="btn  text-gray-800 hover:bg-gray-800 hover:border-gray-800 hover:text-white" type="button" value="List All Ideas" onClick={this.displayIdeas} /> */}
+            <input className="btn  text-blue-800 hover:bg-blue-800 hover:border-blue-800 hover:text-white" type="button" value="List All Ideas" onClick={this.displayIdeas} />
             <input className="btn text-gray-800 hover:bg-gray-800 hover:border-gray-800 hover:text-white" type="reset" value="Reset" onClick={this.handleReset} />
             <input className="btn text-green-400 hover:bg-green-400 hover:border-green-400 hover:text-white" type="submit" value="Submit" />
           </div>
         </form>
-        <div className="block flex-col gap-4 bg-gray-400" id="ideaList">{this.state.currentIdeas}</div>
+        <div className="" id="ideaList">{this.state.currentIdeas}</div>
       </div>
     );
   }
