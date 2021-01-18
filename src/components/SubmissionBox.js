@@ -55,6 +55,13 @@ export class SubmissionBox extends Component {
     });
   }
 
+  handleReset = () => {
+    this.setState({
+      name: "",
+      description: "",
+    });
+  };
+
   handleSubmit(event) {
     event.preventDefault();
     let idea = {
@@ -69,14 +76,10 @@ export class SubmissionBox extends Component {
       console.log("nishal", ideaList);
       saveIdea(ideaList);
     });
+    this.handleReset();
+    document.getElementById("ideaList").innerHTML = "";
   }
 
-  handleReset = () => {
-    this.setState({
-      name: "",
-      description: "",
-    });
-  };
 
   displayIdeas = () => {
     const displayList = [];
@@ -137,7 +140,7 @@ export class SubmissionBox extends Component {
             <input className="btn text-green-400 hover:bg-green-400 hover:border-green-400 hover:text-white" type="submit" value="Submit" />
           </div>
         </form>
-        <div className="" id="ideaList">{this.state.currentIdeas}</div>
+        <div className="flex flex-col-reverse" id="ideaList">{this.state.currentIdeas}</div>
       </div>
     );
   }
